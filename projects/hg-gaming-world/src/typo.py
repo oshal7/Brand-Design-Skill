@@ -67,3 +67,36 @@ def extrude(face, cap, d_ratio=0.133, o_ratio=0.027):
     parts = [face] if face.geom_type == "Polygon" else list(face.geoms)
     body = unary_union([sweep(Polygon(p.exterior), D, D).buffer(O, quad_segs=RES, join_style="mitre") for p in parts])
     return body
+
+def _signed(c):
+    return sum(c[i][0] * c[(i + 1) % len(c)][1] - c[(i + 1) % len(c)][0] * c[i][1] for i in range(len(c))) / 2
+
+def nonzero(contours):
+    """Fill contours with the nonzero rule: same-direction contours union (overlaps merge), opposite ones cut."""
+    if not contours: return None
+    ref = max(contours, key=lambda c: abs(_signed(c)))
+    sgn = 1 if _signed(ref) > 0 else -1
+    pos = [Polygon(c).buffer(0) for c in contours if _signed(c) * sgn > 0]
+    neg = [Polygon(c).buffer(0) for c in contours if _signed(c) * sgn < 0]
+    return unary_union(pos).difference(unary_union(neg)) if neg else unary_union(pos)
+
+def glyph_shapes(path, text, cap_px, tracking=0.0, kern_adj=None):
+    """Per-glyph geometry, scaled so cap height == cap_px. Returns list of (char, geom, advance_px).
+    kern_adj: {pair: em} extra kerning applied between characters."""
+    tt, hbf = load(path)
+    upem = tt["head"].unitsPerEm
+    cap_units = getattr(tt["OS/2"], "sCapHeight", 0) or upem * 0.7
+    s = cap_px / cap_units
+    buf = hb.Buffer(); buf.add_str(text); buf.guess_segment_properties()
+    hb.shape(hbf, buf, {"kern": True, "liga": False})
+    gs = tt.getGlyphSet(); order = tt.getGlyphOrder()
+    out = []; x = 0.0
+    for idx, (info, pos) in enumerate(zip(buf.glyph_infos, buf.glyph_positions)):
+        ch = text[info.cluster]
+        if kern_adj and idx > 0:
+            x += kern_adj.get(text[buf.glyph_infos[idx - 1].cluster] + ch, 0) * upem
+        pen = FlatPen(gs, n=16); gs[order[info.codepoint]].draw(pen)
+        g = nonzero([[((x + pos.x_offset + px) * s, -(py + pos.y_offset) * s) for px, py in c] for c in pen.contours])
+        out.append((ch, g, (x * s)))
+        x += pos.x_advance + tracking * upem
+    return out, cap_px

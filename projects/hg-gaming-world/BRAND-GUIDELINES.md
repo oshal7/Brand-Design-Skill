@@ -108,12 +108,25 @@ Every text pair above is ≥ 4.5 : 1 (WCAG AA) in all three modes.
 - An Indigo fill on dark is low-contrast as a shape (2.5 : 1): give Indigo buttons white labels and don't rely on the fill alone to show a boundary; the main dark-mode CTA is Volt.
 - Logo on colour: primary on Void/Carbon/Paper; one-colour white on Indigo or Graphite; one-colour Void on Volt.
 
-## 3. Typography — **draft** (see `03-typography/type-screening.png`, `type-layouts.png`)
+## 3. Typography — **draft: Unbounded or Rubik, tuned** (see `03-typography/type-tuned.png`)
 
-Type is **flat** — the 45° depth belongs to the mark, not the words. Shortlist: Russo One (recommended),
-Unbounded, Rubik; body/UI in Inter. All SIL Open Font License (logo use allowed).
+Type is **flat**. The 45° depth belongs to the mark only.
 
-## 4. Patterns — **draft** (see `04-patterns/patterns-overview.png`)
+The display face is a tuned version of Unbounded Black or Rubik ExtraBold, both under the SIL Open
+Font License, which allows logo use. Body and UI text is set in Inter. Tuning carries the mark into the letters:
 
-Six patterns built from the mark's own parts — D-pad grid, button field, HG blocks, depth lines,
-grip paths, smile wave — each in subtle-dark (default), indigo, loud and light colourways.
+1. **Soft outer corners.** Convex corners are rounded at 7.5% of cap height, which brings the logo's curviness into the type.
+2. **Grip corners.** The H gets the mark's big top-left corner and the G gets its big bottom-right corner, echoing the two blocks.
+3. **Sharp inner joins.** Concave corners stay crisp, like the cuts in the mark.
+4. **Tight spacing.** Negative tracking plus hand-kerned pairs (AP, PY, WO, GW and others) set the letters close, like the two blocks.
+
+Lockups are in `03-typography/lockups/`. The type is outlined, so no font is needed:
+- `stack3`: three lines, as tall as the mark (primary)
+- `stack2`: HAPPY / GAMING WORLD
+- `line`: one line, for headers
+- `hg-world`: compact
+- `hgw`: the mark stacked over the monogram, for avatars and merch
+
+Each lockup comes in three versions: `-black` (with the one-colour mark), `-on-dark` and `-on-light`.
+
+## 4. Patterns — *to revisit*
