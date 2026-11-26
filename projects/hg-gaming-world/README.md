@@ -4,7 +4,7 @@ Built with the `logo-design` skill in this repo, one step at a time, around the 
 
 1. **Logo** — `01-logo/` ✅ master, one-colour, small-size, app icon, favicon
 2. **Colour** — `02-colour/` ✅ Indigo + Volt: dark / dim / light modes, `tokens.css`
-3. **Typography**, in `03-typography/`: Unbounded and Rubik tuned to the mark, with outlined lockups. Waiting on the final pick.
+3. **Typography**, in `03-typography/`: HG Block, custom lettering built from the mark, with outlined lockups. Waiting on review, plus the choice of headline font.
 4. **Patterns**: to revisit, since the first set was too generic.
 5. Brand guidelines — `BRAND-GUIDELINES.md` (living; logo section done)
 
