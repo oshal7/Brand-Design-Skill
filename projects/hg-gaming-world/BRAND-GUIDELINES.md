@@ -108,31 +108,43 @@ Every text pair above is ≥ 4.5 : 1 (WCAG AA) in all three modes.
 - An Indigo fill on dark is low-contrast as a shape (2.5 : 1): give Indigo buttons white labels and don't rely on the fill alone to show a boundary; the main dark-mode CTA is Volt.
 - Logo on colour: primary on Void/Carbon/Paper; one-colour white on Indigo or Graphite; one-colour Void on Volt.
 
-## 3. Typography — **draft** (see `03-typography/hg-block-lettering.png`)
+## 3. Typography — **draft** (see `03-typography/hgw-display.png`)
 
-Type is **flat**. The 45° depth belongs to the mark only.
+The type is **flat**; the 45° depth belongs to the mark only. The letters carry the mark's
+**diagonal axis** instead.
 
-### 3.1 HG Block: identity lettering
-Custom capitals built the way the mark builds its h and g, as solid blocks with shapes cut out of them:
-- **Straight letters are built like the h block** (H A P Y M I N W R L): big grip curve top-left, every other corner sharp, counters cut as sharp-cornered slots.
-- **Round letters are built like the g block** (G O D): soft top corners, big grip curve bottom-right, nearly square bottom-left, circular counters (the g's bowl). P and R use the same circular bowl.
-- **45° notches** in W, M, Y and R come from the depth angle; the W notch echoes the W formed by the depth.
-- **Grid:** cap 100, stem 30, bar 22, counter 26, 12 units between letters.
+### 3.1 HGW Display (logo lockups, headlines, prices, buttons)
+HGW Display is Rubik ExtraBold rebuilt with one rule taken from the mark. The mark's silhouette is
+rounded only on its top-left and bottom-right corners, which is the diagonal its depth runs along.
 
-HG Block is used only in logo lockups and large display words. It is drawn letter by letter
-(`src/hgblock.py`), not installed as a font.
+- **Outer corners** facing up-left or down-right get a large curve (14% of cap height).
+- **All other corners** keep Rubik's original small, crisp radius.
+- **Counters** follow the same diagonal (5% of cap height).
 
-Lockups are in `03-typography/lockups/`, outlined. Each comes in `-black`, `-white`, `-on-dark` and `-on-light` versions:
-- `stack3`: three lines, as tall as the mark (primary)
-- `stack2`: HAPPY / GAMING WORLD
-- `line`: one line, for headers
-- `hg-world`: compact
-- `hgw`: the mark over the monogram
+The rule is applied to every glyph (A–Z, a–z, 0–9, punctuation, and the ₹ € $ £ signs), and the
+original spacing and kerning are kept.
 
-### 3.2 Website type
-- **Headlines:** Unbounded ExtraBold or Rubik ExtraBold, unmodified (decision pending).
-- **Body and UI:** Inter.
+- Files: `03-typography/font/HGWDisplay-ExtraBold.ttf` (install for design tools) and `.woff2`
+  (website), with `hgw-display.css`.
+- Licence: SIL Open Font License 1.1 (`OFL.txt`). Rubik has no Reserved Font Name, so the modified
+  font ships under its own name.
+- Use it for logo lockups, headlines, prices, buttons and short display lines. Don't use it for
+  paragraphs.
 
-All three are under the SIL Open Font License.
+### 3.2 Lockups (`03-typography/lockups/`, outlined, no font needed)
+| File | Use |
+|---|---|
+| `hgw-stack3-*` | HAPPY / GAMING / WORLD, three lines as tall as the mark. Primary. |
+| `hgw-stack2-*` | HAPPY / GAMING WORLD |
+| `hgw-line-*` | One line, for website headers and narrow bars |
+| `hgw-hg-world-*` | HG WORLD, compact |
+| `hgw-hgw-*` | The mark over HGW, for avatars and merch |
+
+Each layout comes in `-black` and `-white` (one-colour mark) and `-on-dark` and `-on-light`
+(two-colour mark). The mark keeps its depth in every lockup. The type is set with tracking of
+−1% and line spacing of 1.12.
+
+### 3.3 Body and UI text
+Body and UI text is set in **Inter** (400, 500 and 600). Inter is also under the SIL Open Font License.
 
 ## 4. Patterns — *to revisit*

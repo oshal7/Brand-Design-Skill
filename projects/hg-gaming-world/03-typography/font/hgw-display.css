@@ -1,0 +1,13 @@
+/* HGW Display: headlines, prices, buttons and short display text. Body text uses Inter. */
+@font-face {
+  font-family: "HGW Display";
+  src: url("HGWDisplay-ExtraBold.woff2") format("woff2"),
+       url("HGWDisplay-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --font-display: "HGW Display", "Rubik", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
