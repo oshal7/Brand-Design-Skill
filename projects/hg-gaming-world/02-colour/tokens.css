@@ -1,0 +1,55 @@
+/* HG Gaming World — colour tokens (Indigo + Volt). Dark is the default; add data-theme to <html>. */
+:root{
+  --hg-indigo-100: #E7E5FF;
+  --hg-indigo-300: #8C83FF;
+  --hg-indigo-400: #5E52FF;
+  --hg-indigo-500: #2E1FF5;
+  --hg-indigo-600: #2216C4;
+  --hg-indigo-800: #120B6B;
+  --hg-volt-300: #DBFF85;
+  --hg-volt-400: #C6FF33;
+  --hg-volt-600: #9ACC14;
+  --hg-volt-800: #3F5500;
+}
+:root, [data-theme="dark"]{
+  --bg: #0A0A10;
+  --surface: #15151E;
+  --raised: #24242F;
+  --border: #34343F;
+  --text: #F4F4F8;
+  --text-2: #A3A3B3;
+  --link: #8C83FF;
+  --brand-fill: #2E1FF5;
+  --on-brand: #FFFFFF;
+  --cta: #C6FF33;
+  --on-cta: #0A0A10;
+  --accent-text: #C6FF33;
+}
+[data-theme="dim"]{
+  --bg: #16161F;
+  --surface: #20202B;
+  --raised: #2C2C38;
+  --border: #3C3C49;
+  --text: #F4F4F8;
+  --text-2: #ABABBC;
+  --link: #9A92FF;
+  --brand-fill: #2E1FF5;
+  --on-brand: #FFFFFF;
+  --cta: #C6FF33;
+  --on-cta: #0A0A10;
+  --accent-text: #C6FF33;
+}
+[data-theme="light"]{
+  --bg: #F4F4F8;
+  --surface: #FFFFFF;
+  --raised: #EBEBF1;
+  --border: #DADAE3;
+  --text: #0A0A10;
+  --text-2: #55556A;
+  --link: #2E1FF5;
+  --brand-fill: #2E1FF5;
+  --on-brand: #FFFFFF;
+  --cta: #0A0A10;
+  --on-cta: #C6FF33;
+  --accent-text: #3F5500;
+}

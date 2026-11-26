@@ -3,9 +3,9 @@
 Built with the `logo-design` skill in this repo, one step at a time, around the existing HG mark.
 
 1. **Logo** — `01-logo/` ✅ master, one-colour, small-size, app icon, favicon
-2. **Colour** — `02-colour/` three directions (awaiting pick)
-3. **Typography** — `03-typography/` three directions for *Happy Gaming World*, *HG World*, *HGW* (awaiting pick)
-4. Pattern system
+2. **Colour** — `02-colour/` ✅ Indigo + Volt: dark / dim / light modes, `tokens.css`
+3. **Typography** — `03-typography/` flat type screening + layouts (awaiting pick)
+4. **Patterns** — `04-patterns/` six patterns × four colourways (awaiting pick)
 5. Brand guidelines — `BRAND-GUIDELINES.md` (living; logo section done)
 
 ## 01-logo files

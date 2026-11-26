@@ -41,9 +41,9 @@ physical objects, creates the W, and is the most ownable part of the identity.
 
 ### 1.3 Small-size version
 
-Below **32 px** tall the full mark's detail fills in, so use `hg-small.svg`: same blocks, same 45°
+**Approved — small sizes only.** Below **32 px** tall the full mark's detail fills in, so use `hg-small.svg`: same blocks, same 45°
 depth and W notches, with the arrow-key D-pad simplified to a plus, the four buttons to a single
-button ring, wider hook/smile cuts and a heavier depth and border.
+button ring (circle with a centre dot), wider hook/smile cuts and a heavier depth and border.
 
 | Size (mark height) | Use |
 |---|---|
@@ -68,6 +68,52 @@ mark, measured from the outside of the depth and border.
 
 ---
 
-## 2. Colour — **draft** (see `02-colour/colour-directions.png`)
-## 3. Typography — **draft** (see `03-typography/type-directions.png`)
-## 4. Patterns — *to come*
+## 2. Colour — Indigo + Volt (approved)
+
+Board: `02-colour/colour-system.png` · tokens: `02-colour/tokens.css` · data: `02-colour/palette.json`
+
+### 2.1 Brand colours
+| Token | HEX | RGB | CMYK (approx.) | Pantone (approx., verify on a physical guide) | Role |
+|---|---|---|---|---|---|
+| **Indigo 500** — signature | `#2E1FF5` | 46 31 245 | 85 80 0 0 | 2726 C / Blue 072 C | Logo depth, brand blocks, badges, links on light |
+| Indigo 300 | `#8C83FF` | 140 131 255 | 45 45 0 0 | 2715 C | Links and indigo text **on dark** |
+| Indigo 400 | `#5E52FF` | 94 82 255 | 68 65 0 0 | 2725 C | Hover on dark |
+| Indigo 600 | `#2216C4` | 34 22 196 | 95 90 0 0 | 2736 C | Pressed on light |
+| Indigo 100 / 800 | `#E7E5FF` / `#120B6B` | | | | Light tints / deep shades |
+| **Volt 400** — accent | `#C6FF33` | 198 255 51 | 25 0 85 0 | 375 C / 802 C (neon) | Primary CTA on dark, deals, prices, highlights |
+| Volt 800 | `#3F5500` | 63 85 0 | 60 30 100 45 | 371 C | Volt-family **text on light** |
+| Volt 300 / 600 | `#DBFF85` / `#9ACC14` | | | | Tints for charts/states |
+
+Indigo 500 and Volt 400 sit outside the CMYK gamut — use the Pantone spot colours for premium print.
+
+### 2.2 Modes (≈70% dark / 30% light)
+| Token | Dark (default) | Dim | Light |
+|---|---|---|---|
+| bg | `#0A0A10` Void | `#16161F` | `#F4F4F8` Paper |
+| surface | `#15151E` Carbon | `#20202B` | `#FFFFFF` |
+| raised | `#24242F` Graphite | `#2C2C38` | `#EBEBF1` |
+| border | `#34343F` | `#3C3C49` | `#DADAE3` |
+| text | `#F4F4F8` | `#F4F4F8` | `#0A0A10` |
+| text-2 | `#A3A3B3` | `#ABABBC` | `#55556A` |
+| link | `#8C83FF` | `#9A92FF` | `#2E1FF5` |
+| primary CTA | Volt fill, Void text | Volt fill, Void text | Void fill, Volt text |
+| brand fill | Indigo, white text | Indigo, white text | Indigo, white text |
+
+Every text pair above is ≥ 4.5 : 1 (WCAG AA) in all three modes.
+
+### 2.3 Colour rules
+- Proportion: dark neutrals ≈ 70%, light ≈ 30%, Indigo ≈ 5–10%, Volt ≤ 5% — Volt is a highlight, never a background for long text.
+- Never set Indigo 500 as text on dark (2.5 : 1) — use Indigo 300.
+- Never set Volt as text on light — use Volt 800, or Volt on a Void button.
+- An Indigo fill on dark is low-contrast as a shape (2.5 : 1): give Indigo buttons white labels and don't rely on the fill alone to show a boundary; the main dark-mode CTA is Volt.
+- Logo on colour: primary on Void/Carbon/Paper; one-colour white on Indigo or Graphite; one-colour Void on Volt.
+
+## 3. Typography — **draft** (see `03-typography/type-screening.png`, `type-layouts.png`)
+
+Type is **flat** — the 45° depth belongs to the mark, not the words. Shortlist: Russo One (recommended),
+Unbounded, Rubik; body/UI in Inter. All SIL Open Font License (logo use allowed).
+
+## 4. Patterns — **draft** (see `04-patterns/patterns-overview.png`)
+
+Six patterns built from the mark's own parts — D-pad grid, button field, HG blocks, depth lines,
+grip paths, smile wave — each in subtle-dark (default), indigo, loud and light colourways.
