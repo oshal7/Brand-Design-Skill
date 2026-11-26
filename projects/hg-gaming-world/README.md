@@ -2,11 +2,11 @@
 
 Built with the `logo-design` skill in this repo, one step at a time, around the existing HG mark.
 
-1. **Logo refinement** — `01-logo/` ✅ refined master (awaiting sign-off)
-2. Final master kit (small-size cut, favicon/app icon, lockups)
-3. Typography for *Happy Gaming World*, *HG World*, *HGW*
+1. **Logo** — `01-logo/` ✅ master, one-colour, small-size, app icon, favicon
+2. **Colour** — `02-colour/` three directions (awaiting pick)
+3. **Typography** — `03-typography/` three directions for *Happy Gaming World*, *HG World*, *HGW* (awaiting pick)
 4. Pattern system
-5. Brand guidelines
+5. Brand guidelines — `BRAND-GUIDELINES.md` (living; logo section done)
 
 ## 01-logo files
 Faithful refinement of the original mark: sharp h-block, rounded g-block, pointed arrow-key
@@ -23,7 +23,10 @@ one-colour depth files below.
 | `hg-one-colour-white.svg` | One colour with depth — on brand blue, dark, photos |
 | `hg-one-colour-blue.svg` | One colour with depth — on light |
 | `hg-one-colour-black.svg` | One colour with depth — print, emboss, stamp, engraving |
+| `hg-small.svg` / `hg-small-one-colour-*.svg` | Small-size version (≤ 32 px) |
+| `hg-app-icon.svg` / `hg-favicon.svg` | App icon tile / favicon source |
 | `refined-mark-board.png` | Before/after and all versions |
 | `original-mark.webp` | The original artwork, for reference |
 
-`src/` regenerates everything: `pip install shapely`, then `python3 src/logo.py 01-logo`.
+`src/` regenerates everything: `pip install shapely fonttools brotli uharfbuzz`, then
+`python3 src/logo.py 01-logo && python3 src/small.py 01-logo`.
