@@ -1,8 +1,5 @@
 # Logo Design Skill for Claude & AI Agents
 
-[![Sponsor](https://img.shields.io/badge/Sponsor-ea4aaa?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/kaankiziltug) [![Tests](https://github.com/kaankiziltug/logo-design-skill/actions/workflows/test.yml/badge.svg)](https://github.com/kaankiziltug/logo-design-skill/actions/workflows/test.yml) [![The New 100: #14](https://www.theagenticleaderboard.com/badges/new/logo-design-skill.svg)](#)
-
-![Twenty-eight example runs of the logo-design skill](docs/images/hero.png)
 
 A comprehensive **logo-design skill** that turns Claude — or any agent that supports Agent Skills, such as Gemini
 CLI, Codex CLI, Cursor or GitHub Copilot — into a disciplined identity designer, from the first brief to
