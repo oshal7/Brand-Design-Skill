@@ -147,4 +147,39 @@ Each layout comes in `-black` and `-white` (one-colour mark) and `-on-dark` and 
 ### 3.3 Body and UI text
 Body and UI text is set in **Inter** (400, 500 and 600). Inter is also under the SIL Open Font License.
 
-## 4. Patterns — *to revisit*
+## 4. Patterns — **draft** (see `04-patterns/pattern-library.png`)
+
+There are 18 patterns. Each one is generated from a single identity rule and comes in 4 colourways:
+**Void** (the default), **Indigo**, **Volt** (loud; use for drops and sales only) and **Light**.
+
+| Family | Rule | Patterns |
+|---|---|---|
+| Depth | The 45° extrusion and the W its notches make | 01 Extrude field · 02 W chain · 03 Speed lines · 04 Controller city |
+| Axis | Curves only on the top-left/bottom-right diagonal | 05 Grip weave · 06 Grip flow · 07 Axis grid · 08 Grip maze |
+| Controller | D-pad, button ring, hook/smile, the two halves | 09 Arrow flow · 10 Button fractal · 11 Grin field · 12 Halves · 13 D-pad lattice |
+| Type | HGW Display letterforms | 14 HGW monogram · 15 Ticker · 16 Letter crops |
+| Ecosystem | Buy · Repair · Refuel · Play | 17 Ecosystem tiles · 18 Network |
+
+**Usage**
+- **One pattern per layout.** Never put two patterns side by side.
+- **Keep the logo and headline on a plain panel.** The pattern sits behind or beside it, never under the text.
+- **Default to the Void colourway.** Use Indigo for brand moments. Keep Volt for drops and sales, used sparingly.
+- **Patterns are decoration only.** They never replace the mark.
+
+## 5. Applications (see `05-mockups/mockups-overview.png`)
+1. Billboard
+2. Bus shelter
+3. Website hero
+4. Mobile (app, story ad, notification)
+5. Display banners (970×90, 300×250, 300×600, 320×50, 320×100)
+6. Packing tape
+7. Shipping box
+8. Shopping bags
+9. Store front
+10. Staff tees
+11. Business cards
+12. Gift and top-up cards
+13. Repair tag and stickers
+14. Social posts
+
+Prices and the contact details on the business card are placeholders.
