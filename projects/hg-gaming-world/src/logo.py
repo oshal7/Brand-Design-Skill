@@ -73,18 +73,29 @@ R_face = R_blk.difference(rot(SMILE_F)).difference(circle(*bc, 118)).union(butto
 face = unary_union([L_face, R_face])
 blocks = unary_union([L_blk, R_blk])
 
+D, O = 80, 16                       # depth offset (45 deg) and border
+RHO = 120                           # rounded back-bottom corner of the h's depth -> bottom notch
+
+def depth_body():
+    """Each block extruded on its own, so the notches between H and G stay open (the W)."""
+    mit = dict(quad_segs=RES, join_style="mitre")
+    L_back = rrect(0, 0, WL, H, tl=R_GRIP, br=RHO)
+    body_L = unary_union([L_blk.buffer(O, **mit), sweep(L_back, D, D).buffer(O, **mit)])
+    body_R = sweep(R_blk, D, D).buffer(O, **mit)
+    return unary_union([body_L, body_R])
+
+body = depth_body()
+
 if __name__ == "__main__":
     OUT = sys.argv[1]
     BLUE, INK, LIGHT, WHITE, BLACK = "#2E1FF5", "#1C1C1E", "#F2F2F5", "#FFFFFF", "#111111"
-    D, O = 80, 16
-    body = sweep(blocks, D, D).buffer(O, quad_segs=RES, join_style="mitre")
     minx, miny, maxx, maxy = body.bounds; pad = 64
     vb = (minx - pad, miny - pad, maxx - minx + 2*pad, maxy - miny + 2*pad)
     lay = [("depth", body, BLUE), ("face", face, WHITE)]
     open(f"{OUT}/hg-primary.svg","w").write(svg(lay, vb, "HG Gaming World logo", size=1024))
     open(f"{OUT}/hg-primary-on-light.svg","w").write(svg(lay, vb, "HG Gaming World logo — on light", bg=LIGHT, size=1024))
     open(f"{OUT}/hg-primary-on-dark.svg","w").write(svg(lay, vb, "HG Gaming World logo — on dark", bg=INK, size=1024))
-    fx0, fy0, fx1, fy1 = blocks.bounds; p2 = 48
-    vbf = (fx0 - p2, fy0 - p2, fx1 - fx0 + 2*p2, fy1 - fy0 + 2*p2)
-    for name, col, t in [("white", WHITE, "flat white"), ("blue", BLUE, "flat blue"), ("black", BLACK, "one colour")]:
-        open(f"{OUT}/hg-flat-{name}.svg","w").write(svg([("symbol", face, col)], vbf, f"HG Gaming World logo — {t}", size=1024))
+    # one-colour versions that KEEP the depth: face knocked out of the depth body
+    solo = body.difference(face)
+    for name, col in [("black", BLACK), ("white", WHITE), ("blue", BLUE)]:
+        open(f"{OUT}/hg-one-colour-{name}.svg","w").write(svg([("symbol", solo, col)], vb, f"HG Gaming World logo — one colour {name}", size=1024))
