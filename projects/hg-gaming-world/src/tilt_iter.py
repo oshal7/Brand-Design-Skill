@@ -9,6 +9,7 @@ from shapely.geometry import Point, box
 HGWD = "/home/user/Brand-Design-Skill/projects/hg-gaming-world/03-typography/font/HGWDisplay-ExtraBold.ttf"
 GROT = "/usr/share/fonts/opentype/inter/InterDisplay-Bold.otf"
 TL = TILT
+LEADV = 1.18
 L = layers(TL); MARK = unary_union([g for _, g, _ in L]); SOLO = one_colour(TL)
 mx0, my0, mx1, my1 = MARK.bounds
 _, _, Rb, Rf = parts(); _c = unary_union([parts()[0], Rb]).centroid
@@ -26,9 +27,9 @@ def edge_x(y0, y1, geom=MARK):
     band = geom.intersection(box(mx0 - 10, y0, mx1 + 10, y1))
     return band.bounds[2] if not band.is_empty else geom.bounds[2]
 
-def place(lines, cap, top, gapk=0.45, lead=1.18, mode="follow", font=HGWD, x_fixed=None):
+def place(lines, cap, top, gapk=0.45, lead=None, mode="follow", font=HGWD, x_fixed=None):
     """lines placed level; mode 'follow' = each line clears the mark's silhouette by the same gap."""
-    out = []; gap = gapk * cap
+    out = []; gap = gapk * cap; lead = lead or LEADV
     for i, s in enumerate(lines):
         base = top + cap + i * cap * lead
         w = word(s, cap, font)
@@ -38,14 +39,14 @@ def place(lines, cap, top, gapk=0.45, lead=1.18, mode="follow", font=HGWD, x_fix
     return unary_union(out)
 
 ITER = {}
-cap_g = H / (1 + 2 * 1.18)          # three lines as tall as one block
+cap_g = H / (1 + 2 * LEADV)          # three lines as tall as one block
 # 1 stepped: follows the silhouette, block centred on the g block
 def it1():
-    top = (G["tr"][1] + G["br"][1]) / 2 - (cap_g * (1 + 2 * 1.18)) / 2
+    top = (G["tr"][1] + G["br"][1]) / 2 - (cap_g * (1 + 2 * LEADV)) / 2
     return place(["Happy", "Gaming", "World"], cap_g, top)
 # 2 corner-locked: cap line level with the g block's top-right corner, last baseline level with its bottom-right corner
 def it2():
-    span = G["br"][1] - G["tr"][1]; cap = span / (1 + 2 * 1.18)
+    span = G["br"][1] - G["tr"][1]; cap = span / (1 + 2 * LEADV)
     return place(["Happy", "Gaming", "World"], cap, G["tr"][1])
 # 3 ground line: one line; its baseline is the mark's lowest point - the mark stands on the word
 def it3():
@@ -67,12 +68,12 @@ def it6():
     cap = cap_g * 0.92; out = []
     x0 = edge_x(G["tr"][1], G["tr"][1] + cap) + 0.4 * cap
     for i, s in enumerate(["Happy", "Gaming", "World"]):
-        base = G["tr"][1] + cap + i * cap * 1.18
+        base = G["tr"][1] + cap + i * cap * LEADV
         out.append(affinity.translate(word(s, cap), x0 + i * cap * 0.42, base))
     return unary_union(out)
 # 7 two lines: Happy / Gaming World, following the silhouette
 def it7():
-    cap = cap_g * 1.15; top = (G["tr"][1] + G["br"][1]) / 2 - cap * (1 + 1.18) / 2
+    cap = cap_g * 1.15; top = (G["tr"][1] + G["br"][1]) / 2 - cap * (1 + LEADV) / 2
     return place(["Happy", "Gaming World"], cap, top)
 # 8 stacked under: mark above, one level line below, left edge on the h block's left-most point
 def it8():
@@ -83,14 +84,14 @@ def it9():
     cap = cap_g * 0.8; out = []
     for i, s in enumerate(["Happy", "Gaming", "World"]):
         w = word(s, cap); ww = w.bounds[2]
-        out.append(affinity.translate(w, (mx0 + mx1) / 2 - ww / 2, my1 + 0.6 * cap + cap + i * cap * 1.18))
+        out.append(affinity.translate(w, (mx0 + mx1) / 2 - ww / 2, my1 + 0.6 * cap + cap + i * cap * LEADV))
     return unary_union(out)
 # 10 big type: name as tall as the whole mark, following the silhouette (last-resort option)
 def it10():
     cap = (my1 - my0) / (1 + 2 * 1.12); return place(["Happy", "Gaming", "World"], cap, my0, lead=1.12, gapk=0.38)
 # 11 other font (grotesk), corner-locked like 2
 def it11():
-    span = G["br"][1] - G["tr"][1]; cap = span / (1 + 2 * 1.18)
+    span = G["br"][1] - G["tr"][1]; cap = span / (1 + 2 * LEADV)
     return place(["Happy", "Gaming", "World"], cap, G["tr"][1], font=GROT)
 # 12 axis rule: a level line under the name that the tilted mark's lowest corner touches - the floor it tips on
 def it12():

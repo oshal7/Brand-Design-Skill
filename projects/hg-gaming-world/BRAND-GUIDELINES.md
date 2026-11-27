@@ -124,7 +124,8 @@ rounded only on its top-left and bottom-right corners, which is the diagonal its
 The rule is applied to every glyph (A–Z, a–z, 0–9, punctuation, and the ₹ € $ £ signs), and the
 original spacing and kerning are kept.
 
-- Files: `03-typography/font/HGWDisplay-ExtraBold.ttf` (install for design tools) and `.woff2`
+- Weights: **Black** (logo lockups; its stroke equals one of the mark's button dots) and **ExtraBold** (headlines).
+- Files: `03-typography/font/HGWDisplay-Black.ttf` / `HGWDisplay-ExtraBold.ttf` (install for design tools) and `.woff2`
   (website), with `hgw-display.css`.
 - Licence: SIL Open Font License 1.1 (`OFL.txt`). Rubik has no Reserved Font Name, so the modified
   font ships under its own name.
