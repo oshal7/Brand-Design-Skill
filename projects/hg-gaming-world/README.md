@@ -7,7 +7,8 @@ Built with the `logo-design` skill in this repo, one step at a time, around the 
 3. **Typography**, in `03-typography/`: the HGW Display font (Rubik rebuilt on the mark's diagonal) as TTF and WOFF2, plus outlined lockups. Waiting on review.
 4. **Patterns**, in `04-patterns/`: 18 patterns from the identity rules, each in 4 colourways (72 SVGs).
 5. **Mockups**, in `05-mockups/`: 14 applications, from billboard and website to packing tape, box, bags, store front, cards and socials.
-6. Brand guidelines — `BRAND-GUIDELINES.md` (living)
+6. **Logo v3**, in `06-logo-v3/`: the staggered mark that fixes the "69" reading. A follows the founder's reference; B adds an h counter. Each comes straight and tilted, with lockups. Waiting on a decision.
+7. Brand guidelines — `BRAND-GUIDELINES.md` (living)
 
 ## 01-logo files
 Faithful refinement of the original mark: sharp h-block, rounded g-block, pointed arrow-key
